@@ -66,7 +66,7 @@ function setvars(){
 	# HOST
 	# suite root path on host 
 	export TESTSUITES_ROOT_HOST=${ARGTESTSUITES_ROOT:-$TESTSUITES_ROOT}
-	export TESTSUITES_ROOT_HOST=${TESTSUITES_ROOT_HOST:-$WORKSPACE/testsuites}
+	export TESTSUITES_ROOT_HOST=${TESTSUITES_ROOT_HOST:-$WORKSPACE/testsuites.example}
 	# suite path on host 
 	export TESTSUITE_FOLDER_HOST=${TESTSUITES_ROOT_HOST}/${TESTSUITE}
 
