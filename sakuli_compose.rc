@@ -1,0 +1,6 @@
+SAHI_FF_PROFILE_TEMPLATE_HOST=$WORKSPACE/conf/ff/ff_profile_template
+SAHI_FF_PROFILE_TEMPLATE_MNT=/headless/sakuli/sahi/config/ff_profile_template2
+SAHI_CERTS_HOST=$WORKSPACE/conf/ff/certs
+SAHI_CERTS_MNT=/headless/sakuli/sahi/userdata/certs2
+
+

@@ -1,0 +1,4 @@
+#WORKSPACE=foo
+#COMPOSE_FILE=fff
+#TESTSUITES_ROOT=/opt/testsuitesX
+#ADDARG=-loop 1

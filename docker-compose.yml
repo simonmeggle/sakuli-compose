@@ -1,0 +1,17 @@
+version: '2'
+services:
+  sakuli:
+      container_name: $CONTAINER_NAME
+      image: consol/sakuli-centos-xfce:dev
+      cpu_quota: 75000
+      #mem_reservation: 600MB
+      mem_limit: 2000MB
+      command: run $TESTSUITE_FOLDER_NMT $ADDARGS
+      volumes:
+      - $TESTSUITES_ROOT_HOST:$TESTSUITES_ROOT_MNT
+      - $SAHI_CERTS_HOST:$SAHI_CERTS_MNT
+      - $SAHI_FF_PROFILE_TEMPLATE_HOST:$SAHI_FF_PROFILE_TEMPLATE_MNT
+      ports:
+      - $VNC_PORT:5901
+      - $VNC_HTTP_PORT:6901
+
