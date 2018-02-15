@@ -1,3 +1,6 @@
+
+# See https://github.com/ConSol/sakuli-examples/blob/master/omd-labs-sakuli/README.md how to 
+# handle HTTPS with Sahi
 SAHI_FF_PROFILE_TEMPLATE_HOST=$WORKSPACE/conf/ff/ff_profile_template
 SAHI_FF_PROFILE_TEMPLATE_MNT=/headless/sakuli/sahi/config/ff_profile_template2
 SAHI_CERTS_HOST=$WORKSPACE/conf/ff/certs
