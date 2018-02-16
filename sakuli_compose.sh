@@ -3,12 +3,12 @@
 function main(){
     setvars
     fixPermissions
-    export CONTAINER_NAME=sakuli-test-$TESTSUITE
     echo "Starting docker container: $CONTAINER_NAME"
     
-    docker-compose -p $CONTAINER_NAME -f $COMPOSE_FILE kill
-    echo "docker-compose -p $CONTAINER_NAME -f $COMPOSE_FILE up --force-recreate "
-    docker-compose -p $CONTAINER_NAME -f $COMPOSE_FILE up --force-recreate
+    docker-compose -f $COMPOSE_FILE kill
+
+    echo "docker-compose -f $COMPOSE_FILE up --force-recreate "
+    docker-compose -f $COMPOSE_FILE up --force-recreate
     if [ $? -ne 0 ]; then  
 	    echo "ERROR: Could not start docker container '$CONTAINER_NAME' in docker-compose file '$COMPOSE_FILE'"
     	exit 1
@@ -81,6 +81,13 @@ function setvars(){
 		export COMPOSE_FILE=$TESTSUITES_ROOT_HOST/docker-compose-${TESTSUITE}.yml
 	fi 
 	export COMPOSE_FILE=${COMPOSE_FILE:-$WORKSPACE/docker-compose.yml}
+
+    export CONTAINER_NAME=sakuli-test-$TESTSUITE
+
+	export COMPOSE_PROJECT_NAME=$TESTSUITE
+
+	export VIRTUAL_TCP_HOST=$CONTAINER_NAME
+	export VIRTUAL_TCP_PORT=$VNC_HTTP_PORT
 
 	echo "Loaded variables =================="
 	for var in WORKSPACE TESTSUITE TESTSUITE_FOLDER_HOST TESTSUITE_FOLDER_NMT SAHI_FF_PROFILE_TEMPLATE_HOST SAHI_FF_PROFILE_TEMPLATE_MNT SAHI_CERTS_HOST SAHI_CERTS_MNT COMPOSE_FILE  ADD_ARGUMENT; do 

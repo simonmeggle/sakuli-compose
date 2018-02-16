@@ -818,3 +818,167 @@ browser: Mozilla/5.0 (X11, Linux x86_64, rv:45.0) Gecko/20100101 Firefox/45.0
 		end time: 15-02-2018 21:56:14
 ===========  SAKULI Testsuite "sakuli_xfce" execution FINISHED - OK ======================
 
+INFO  [2018-02-15 23:25:20.622] - set logback configuration file '/headless/sakuli/sakuli-v1.2.0-SNAPSHOT/config/sakuli-log-config.xml'
+INFO  [2018-02-15 23:25:20.708] - set 'sakuli.log.folder' to '/opt/testsuites/test6/_logs'
+INFO  [2018-02-15 23:25:20.708] - set 'sakuli.log.pattern' to '%-5level [%d{YYYY-MM-dd HH:mm:ss.SSS}] - %msg%n'
+INFO  [2018-02-15 23:25:20.708] - set 'log.level.sakuli' to 'INFO'
+INFO  [2018-02-15 23:25:20.708] - set 'log.level.sahi' to 'WARN'
+INFO  [2018-02-15 23:25:20.720] - set 'log.level.sikuli' to 'WARN'
+INFO  [2018-02-15 23:25:20.720] - set 'log.level.spring' to 'WARN'
+INFO  [2018-02-15 23:25:20.720] - set 'log.level.root' to 'INFO'
+INFO  [2018-02-15 23:25:20.731] - set logback configuration file '/headless/sakuli/sakuli-v1.2.0-SNAPSHOT/config/sakuli-log-config.xml'
+INFO  [2018-02-15 23:25:20.746] - sucessfully init sikuli-X screen!
+INFO  [2018-02-15 23:25:20.811] - initialize test suite with id 'sakuli_xfce'
+INFO  [2018-02-15 23:25:20.844] - 
+--- TestSuite initialization: read test suite information of file "/opt/testsuites/test6/testsuite.suite" ----
+case1/sakuli_demo.js http://sahi.example.com/_s_/dyn/Driver_initialized
+
+ --- End of File "/opt/testsuites/test6/testsuite.suite" ---
+INFO  [2018-02-15 23:25:20.851] - test suite with guid 'sakuli_xfce__2018_02_15_23_25_20_812' has been initialized!
+INFO  [2018-02-15 23:25:20.852] - Initialize Sahi Proxy! 
+INFO  [2018-02-15 23:25:20.852] - START Sahi-PROXY: Sahi-Home folder '/headless/sakuli/sahi', Sahi-Configuration folder '/headless/sakuli/sahi/userdata'
+INFO  [2018-02-15 23:25:20.853] - added '<script src='/_s_/spr/sakuli/inject.js'></script>' to Sahi inject config file '/headless/sakuli/sahi/config/inject_top.txt'
+INFO  [2018-02-15 23:25:20.858] - copied file '/headless/sakuli/sakuli-v1.2.0-SNAPSHOT/libs/js/internal/inject.js' to target '/headless/sakuli/sahi/htdocs/spr/sakuli/inject.js'
+INFO  [2018-02-15 23:25:21.146] - Start Sakuli-Test-Suite from folder "/opt/testsuites/test6"
+INFO  [2018-02-15 23:25:21.147] - connect Sahi-TestRunner:http://localhost:9999
+INFO  [2018-02-15 23:25:21.149] - Sahi-Script-Runner starts!
+
+INFO  [2018-02-15 23:25:21.859] - Add RhinoScriptRunner to the JavaBackEnd
+WARN  [2018-02-15 23:25:26.242] - 
+----
+Certificate not found: /headless/sakuli/sahi/userdata/certs/tiles_services_mozilla_com
+----
+INFO  [2018-02-15 23:25:30.167] - set default path for images to the test case folder "/opt/testsuites/test6/case1"
+INFO  [2018-02-15 23:25:30.305] - "test case not initialized" TestCaseAction.getIdFromPath() - convert the path of the test case file to a valid test case ID with arg(s) [/opt/testsuites/test6/case1/undefined]
+INFO  [2018-02-15 23:25:30.305] - Return a test-case-id for "/opt/testsuites/test6/case1/undefined"
+INFO  [2018-02-15 23:25:30.305] - test-case-id = case1
+INFO  [2018-02-15 23:25:30.308] - "test case not initialized" TestCaseAction.init() - init a new test case with arg(s) [case1, 50, 70, [/opt/testsuites/test6/case1]]
+INFO  [2018-02-15 23:25:30.309] - load all pics from "/opt/testsuites/test6/case1" in picLib
+INFO  [2018-02-15 23:25:30.516] - loaded image [id=625, path=/opt/testsuites/test6/case1/625.png ]
+INFO  [2018-02-15 23:25:30.518] - loaded image [id=calculator, path=/opt/testsuites/test6/case1/calculator.png ]
+INFO  [2018-02-15 23:25:30.604] - loaded image [id=gedit, path=/opt/testsuites/test6/case1/gedit.png ]
+INFO  [2018-02-15 23:25:30.606] - loaded image [id=plus, path=/opt/testsuites/test6/case1/plus.png ]
+INFO  [2018-02-15 23:25:30.613] - loaded image [id=result, path=/opt/testsuites/test6/case1/result.png ]
+INFO  [2018-02-15 23:25:30.618] - loaded image [id=sahi_logo, path=/opt/testsuites/test6/case1/sahi_logo.png ]
+INFO  [2018-02-15 23:25:30.618] - set isRequestDelayActive=false
+WARN  [2018-02-15 23:25:30.820] - 
+----
+Certificate not found: /headless/sakuli/sahi/userdata/certs/shavar_services_mozilla_com
+----
+INFO  [2018-02-15 23:25:31.035] - Now start to execute the test case 'case1' ! 
+ ....
+ ...
+....
+INFO  [2018-02-15 23:25:31.175] - Detected distribution: CentOS  >> overwrite some image patterns
+INFO  [2018-02-15 23:25:31.203] - "test case [id=case1, name=case1]" TestCaseAction.addImagePaths() with arg(s) [[/opt/testsuites/test6/case1/centos]]
+INFO  [2018-02-15 23:25:31.203] - load all pics from "/opt/testsuites/test6/case1/centos" in picLib
+INFO  [2018-02-15 23:25:31.214] - loaded image [id=625, path=/opt/testsuites/test6/case1/centos/625.png ]
+INFO  [2018-02-15 23:25:31.216] - loaded image [id=calculator, path=/opt/testsuites/test6/case1/centos/calculator.png ]
+INFO  [2018-02-15 23:25:31.218] - loaded image [id=gedit, path=/opt/testsuites/test6/case1/centos/gedit.png ]
+INFO  [2018-02-15 23:25:31.219] - loaded image [id=plus, path=/opt/testsuites/test6/case1/centos/plus.png ]
+INFO  [2018-02-15 23:25:31.227] - loaded image [id=result, path=/opt/testsuites/test6/case1/centos/result.png ]
+INFO  [2018-02-15 23:25:31.321] - _highlight(_link("SSL Manager"));
+INFO  [2018-02-15 23:25:31.642] - _highlight(_link("Logs"));
+INFO  [2018-02-15 23:25:31.802] - _highlight(_link("Online Documentation"));
+INFO  [2018-02-15 23:25:31.985] - _highlight(_link("Test Pages"));
+INFO  [2018-02-15 23:25:32.175] - _highlight(_link("Sample Application"));
+INFO  [2018-02-15 23:25:32.251] - "R[0,0 1280x1024]@S(0)" Region.find() - find the image in this region with arg(s) [sahi_logo.png]
+INFO  [2018-02-15 23:25:33.017] - "R[575,157 126x70]@S(0)" Region.highlight()
+INFO  [2018-02-15 23:25:34.423] - "test case [id=case1, name=case1]" TestCaseAction.addTestCaseStep() - add a step to the current test case with arg(s) [Test Sahi landing page, 1518737130306, 1518737134423, 10]
+INFO  [2018-02-15 23:25:34.425] - "/usr/bin/gnome-calculator" Application.open() - open application
+INFO  [2018-02-15 23:25:35.488] - Application '/usr/bin/gnome-calculator PID:478' is running
+INFO  [2018-02-15 23:25:35.496] - "M[575,157 126x70]@S(S(0)[0,0 1280x1024]) S:1.00 C:638,192 [761 msec]" Region.waitForImage() - wait for image for x seconds with arg(s) [calculator.png, 5]
+INFO  [2018-02-15 23:25:36.402] - "R[486,352 20x24]@S(0)" Region.mouseMove()
+INFO  [2018-02-15 23:25:36.921] - "R[486,352 20x24]@S(0)" Region.highlight()
+INFO  [2018-02-15 23:25:37.982] - Environment.type() - type over system keyboard with arg(s) [525]
+INFO  [2018-02-15 23:25:38.199] - Environment.sleep() - sleep and do nothing for x seconds with arg(s) [2.0]
+INFO  [2018-02-15 23:25:40.208] - "/usr/bin/gnome-calculator" Application.getRegion() - get a Region object from the application
+INFO  [2018-02-15 23:25:40.223] - "R[469,336 342x382]@S(0)" Region.find() - find the image in this region with arg(s) [plus.png]
+INFO  [2018-02-15 23:25:40.364] - "R[655,681 23x20]@S(0)" Region.highlight()
+INFO  [2018-02-15 23:25:41.475] - "R[655,681 23x20]@S(0)" Region.click()
+INFO  [2018-02-15 23:25:42.456] - Region.type() - type over system keyboard with arg(s) [100]
+INFO  [2018-02-15 23:25:42.572] - "M[655,681 23x20]@S(S(0)[0,0 1280x1024]) S:1.00 C:666,691 [139 msec]" Region.find() - find the image in this region with arg(s) [result.png]
+INFO  [2018-02-15 23:25:42.718] - "R[740,684 14x12]@S(0)" Region.highlight()
+INFO  [2018-02-15 23:25:43.768] - "R[740,684 14x12]@S(0)" Region.click()
+INFO  [2018-02-15 23:25:44.737] - "M[486,352 20x24]@S(S(0)[0,0 1280x1024]) S:1.00 C:496,364 [876 msec]" Region.waitForImage() - wait for image for x seconds with arg(s) [625, 5]
+INFO  [2018-02-15 23:25:46.710] - "R[749,512 45x21]@S(0)" Region.highlight()
+INFO  [2018-02-15 23:25:47.818] - "test case [id=case1, name=case1]" TestCaseAction.addTestCaseStep() - add a step to the current test case with arg(s) [Calculation, 1518737134423, 1518737147817, 25]
+INFO  [2018-02-15 23:25:47.819] - "/usr/bin/gedit" Application.open() - open application
+INFO  [2018-02-15 23:25:48.862] - Application '/usr/bin/gedit PID:645' is running
+INFO  [2018-02-15 23:25:48.863] - "M[749,512 45x21]@S(S(0)[0,0 1280x1024]) S:1.00 C:771,522 [145 msec]" Region.waitForImage() - wait for image for x seconds with arg(s) [gedit.png, 10]
+INFO  [2018-02-15 23:25:49.459] - "R[31,50 59x16]@S(0)" Region.highlight()
+INFO  [2018-02-15 23:25:50.559] - Environment.paste() with arg(s) [Initial test passed. Sakuli, Sahi and Sikuli seem to work fine. Exiting...]
+INFO  [2018-02-15 23:25:50.703] - "test case [id=case1, name=case1]" TestCaseAction.addTestCaseStep() - add a step to the current test case with arg(s) [Editor, 1518737147817, 1518737150702, 10]
+INFO  [2018-02-15 23:25:50.705] - "/usr/bin/gnome-calculator" Application.closeApp() with arg(s) [true]
+INFO  [2018-02-15 23:25:50.705] - Close application with name or path "/usr/bin/gnome-calculator".
+INFO  [2018-02-15 23:25:50.730] - "/usr/bin/gedit" Application.kill() with arg(s) [true]
+INFO  [2018-02-15 23:25:50.764] - =========== SAVE Test Case 'case1' ==================
+INFO  [2018-02-15 23:25:50.909] - _sahi.setServerVar('lastURL', window.document.location.href);
+INFO  [2018-02-15 23:25:51.071] - _sahi.setServerVar('browser', navigator.userAgent);
+INFO  [2018-02-15 23:25:51.104] - "test case [id=case1, name=case1]" TestCaseAction.saveResult() - save the result of the current test case with arg(s) [case1, 1518737130306, 1518737150764, http://sahi.example.com/_s_/dyn/Driver_initialized, Mozilla/5.0 (X11, Linux x86_64, rv:45.0) Gecko/20100101 Firefox/45.0]
+INFO  [2018-02-15 23:25:51.105] - Total Memory in JVM (Xmx) is: 989.875 MB;<br/>Memory currently in use is: 70.31640625 MB;<br/>Memory increment during this test is: 39.25390625 MB
+INFO  [2018-02-15 23:25:54.017] - test suite 'sakuli_xfce' stopped at 2018_02_15_23_25_54_17
+INFO  [2018-02-15 23:25:54.017] - Sahi-Script-Runner executed with SUCCESS
+INFO  [2018-02-15 23:25:54.017] - test suite finished
+INFO  [2018-02-15 23:25:54.017] - SHUTDOWN SAHI-Proxy SUCCESSFULLY
+INFO  [2018-02-15 23:25:54.017] - ========== TEAR-DOWN SAKULI TEST SUITE 'sakuli_xfce' ==========
+INFO  [2018-02-15 23:25:54.036] - ======= WRITE TEST OUTPUT AS JSON FILE ======
+INFO  [2018-02-15 23:25:54.168] - Write file to '/opt/testsuites/test6/_logs/_json/sakuli_xfce_2018.02.15-23-25-54-167.json'
+INFO  [2018-02-15 23:25:54.172] - ======= FINISHED: WRITE TEST OUTPUT AS JSON FILE ======
+INFO  [2018-02-15 23:25:54.274] - 
+=========== RESULT of SAKULI Testsuite "sakuli_xfce" - OK =================
+test suite id: sakuli_xfce
+guid: sakuli_xfce__2018_02_15_23_25_20_812
+name: example test suite inside of the Xfce desktop for Sakuli
+RESULT STATE: OK
+result code: 0
+db primary key: -1
+duration: 33.205 sec.
+warning time: 60 sec.
+critical time: 90 sec.
+start time: 15-02-2018 23:25:20
+end time: 15-02-2018 23:25:54
+db primary key of job table: -1
+browser: Mozilla/5.0 (X11, Linux x86_64, rv:45.0) Gecko/20100101 Firefox/45.0
+	======== test case "case1" ended with OK =================
+	test case id: case1
+	name: case1
+	RESULT STATE: OK
+	result code: 0
+	db primary key: -1
+	duration: 20.458 sec.
+	warning time: 50 sec.
+	critical time: 70 sec.
+	start time: 15-02-2018 23:25:30
+	end time: 15-02-2018 23:25:50
+	start URL: http://sahi.example.com/_s_/dyn/Driver_initialized
+	last URL: http://sahi.example.com/_s_/dyn/Driver_initialized
+		======== test case step "Test_Sahi_landing_page" ended with OK =================
+		name: Test_Sahi_landing_page
+		RESULT STATE: OK
+		result code: 0
+		db primary key: -1
+		duration: 4.117 sec.
+		warning time: 10 sec.
+		start time: 15-02-2018 23:25:30
+		end time: 15-02-2018 23:25:34
+		======== test case step "Calculation" ended with OK =================
+		name: Calculation
+		RESULT STATE: OK
+		result code: 0
+		db primary key: -1
+		duration: 13.394 sec.
+		warning time: 25 sec.
+		start time: 15-02-2018 23:25:34
+		end time: 15-02-2018 23:25:47
+		======== test case step "Editor" ended with OK =================
+		name: Editor
+		RESULT STATE: OK
+		result code: 0
+		db primary key: -1
+		duration: 2.885 sec.
+		warning time: 10 sec.
+		start time: 15-02-2018 23:25:47
+		end time: 15-02-2018 23:25:50
+===========  SAKULI Testsuite "sakuli_xfce" execution FINISHED - OK ======================
+
