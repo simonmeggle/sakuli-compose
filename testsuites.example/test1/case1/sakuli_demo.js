@@ -32,6 +32,7 @@ function checkCentOS() {
 }
 
 try {
+env.sleep(100000000000);
     checkCentOS();
     _highlight(_link("SSL Manager"));
     _highlight(_link("Logs"));
