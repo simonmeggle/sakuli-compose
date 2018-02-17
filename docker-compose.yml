@@ -1,7 +1,7 @@
 version: '3'
 services:
   sakuli:
-      container_name: $CONTAINER_NAME
+      container_name: sakuli-$TESTSUITE
       image: consol/sakuli-centos-xfce:dev
       #cpu_quota: 75000
       #mem_reservation: 600MB
@@ -11,8 +11,8 @@ services:
       - $TESTSUITES_ROOT_HOST:$TESTSUITES_ROOT_MNT
       - $SAHI_CERTS_HOST:$SAHI_CERTS_MNT
       - $SAHI_FF_PROFILE_TEMPLATE_HOST:$SAHI_FF_PROFILE_TEMPLATE_MNT
+      - $CWD/lib/websockify:/headless/noVNC/utils/sakuli-$TESTSUITE
       ports:
-      #- $VNC_PORT:5901
       - $VNC_HTTP_PORT:6901
       environment:
       - VIRTUAL_TCP_HOST

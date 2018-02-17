@@ -21,7 +21,6 @@ services:
             container_name: 'proxy'
             volumes:
                 - '/var/lib/docker/data/nginx/etc/nginx/conf.d:/etc/nginx/conf.d:ro'
-          #      - '/var/lib/docker/data/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf'
             ports:
                 - '81:81'
             tty: true
