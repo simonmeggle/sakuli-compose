@@ -17,7 +17,7 @@ function usage(){
     cat <<"EOF"
 -c      chainfile (list of suite names)
 -p      port incrementation for VNC (based on 5901/6901)
--l 		execute in an endless loop
+-l      execute in an endless loop
 EOF
     exit 1
 }

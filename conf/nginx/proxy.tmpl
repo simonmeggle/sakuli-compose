@@ -1,41 +1,35 @@
-
 {{ range $host, $containers := groupBy $ "Env.VIRTUAL_TCP_HOST" }}
+	{{ range $index, $container := $containers }}
+		{{ $network := index $container.Networks 0 }}
+		{{ if $container.Env.VIRTUAL_TCP_PORT }}
+			{{ range $i, $address := $container.Addresses }}
+				{{ if eq $address.Port $container.Env.VIRTUAL_TCP_PORT }}
 
-upstream {{ $host }} {
-        {{ range $index, $value := $containers }}
-    		{{ $network := index $value.Networks 0 }}
-			{{ if $value.Env.VIRTUAL_TCP_PORT }}
-
-				{{ range $i, $address := $value.Addresses }}
-					{{ if eq $address.Port $value.Env.VIRTUAL_TCP_PORT }}
-        			    server {{ $network.IP }}:{{ $address.Port }};
-		            {{ end }}
-		        {{ end }}
-
-
-            {{ end }}
-         {{ end }}
-
-
-
-}
+error_log /dev/stdout debug;	
 
 server {
-    listen 81;
-    proxy_redirect off; 
-    location /{{ $host }} {
-	    proxy_http_version 1.1;
-	    proxy_pass http://{{ $host }}/;
-	    proxy_set_header Upgrade $http_upgrade;
-	    proxy_set_header Connection "upgrade";
-	
-	    # VNC connection timeout
-	    proxy_read_timeout 61s;
-	
-	    # Disable cache
-	    proxy_buffering off;
+   listen 81;
+
+   location /{{ $container.Name }} {
+        proxy_pass http://{{ $network.IP }}:{{ $address.Port }};
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # WebSocket support (nginx 1.4)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        # Path rewriting
+        rewrite /{{ $container.Name }}/(.*) /$1 break;
+        proxy_redirect off;
     }
 }
-
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	{{ end }}
 {{ end }}        
+
 
