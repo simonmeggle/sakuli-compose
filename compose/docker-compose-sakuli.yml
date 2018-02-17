@@ -18,8 +18,8 @@ services:
       - VIRTUAL_TCP_HOST
       - VIRTUAL_TCP_PORT
       networks:
-      - sakulicompose_proxy
+      - compose_proxy
 
 networks:
-  sakulicompose_proxy:
+  compose_proxy:
     external: true

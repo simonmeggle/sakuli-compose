@@ -30,6 +30,9 @@ function dirExistsOrDie(){
 
 function setvars(){
     export CWD=$(readlink -f `dirname $0`)
+	export ROOT_NAME=${CWD##*/}
+	export PROXY_NETWORK=${ROOT_NAME}_proxy
+
 	PORT_INC=${ARGPORTINC:-0}
 	export VNC_PORT=$((5901 + $PORT_INC))
 	export VNC_HTTP_PORT=$((6901 + $PORT_INC))
@@ -80,7 +83,7 @@ function setvars(){
 	if [ -r $TESTSUITES_ROOT_HOST/docker-compose-${TESTSUITE}.yml ]; then 
 		export COMPOSE_FILE=$TESTSUITES_ROOT_HOST/docker-compose-${TESTSUITE}.yml
 	fi 
-	export COMPOSE_FILE=${COMPOSE_FILE:-$WORKSPACE/docker-compose.yml}
+	export COMPOSE_FILE=${COMPOSE_FILE:-$WORKSPACE/compose/docker-compose-sakuli.yml}
 
     export CONTAINER_NAME=sakuli-test-$TESTSUITE
 

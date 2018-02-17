@@ -22,10 +22,10 @@ https://blog.confirm.ch/docker-reverse-proxy/
 ./sakuli_compose_chain.sh -c rc.d/sakuli_compose_chain1.rc -l
 
 # Start Portainer
-docker-compose -f docker-compose-portainer.yml up
+docker-compose -f compose/docker-compose-portainer.yml -p portainer up
 
 # Start Reverse proxy
-docker-compose  -f docker-compose-revproxy.yml
+docker-compose  -f compose/docker-compose-revproxy.yml  up
 
 # Inspect generated nginx config: 
 cat /var/lib/docker/data/nginx/etc/nginx/conf.d/proxy.conf
