@@ -1,3 +1,6 @@
+# default (no)VNC ports within the container
+VNC_PORT=5901
+NO_VNC_PORT=6901
 
 # See https://github.com/ConSol/sakuli-examples/blob/master/omd-labs-sakuli/README.md how to 
 # handle HTTPS with Sahi

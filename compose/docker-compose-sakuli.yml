@@ -13,10 +13,10 @@ services:
       - $SAHI_FF_PROFILE_TEMPLATE_HOST:$SAHI_FF_PROFILE_TEMPLATE_MNT
 #      - $CWD/lib/websockify:/headless/noVNC/utils/sakuli-$TESTSUITE
       ports:
-      - $VNC_HTTP_PORT:6901
+      - $NO_VNC_PORT_HOST:6901
       environment:
-      - VIRTUAL_TCP_HOST
-      - VIRTUAL_TCP_PORT
+      - VNC_PORT
+      - NO_VNC_PORT
       networks:
       - compose_proxy
 

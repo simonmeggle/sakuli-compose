@@ -1,14 +1,24 @@
-{{ range $host, $containers := groupBy $ "Env.VIRTUAL_TCP_HOST" }}
-	{{ range $index, $container := $containers }}
-		{{ $network := index $container.Networks 0 }}
-		{{ if $container.Env.VIRTUAL_TCP_PORT }}
-			{{ range $i, $address := $container.Addresses }}
-				{{ if eq $address.Port $container.Env.VIRTUAL_TCP_PORT }}
 
 error_log /dev/stdout debug;	
-
 server {
    listen 81;
+
+
+# RANGE CONTAINER ----------------------------------------------
+{{ range $host, $containers := groupBy $ "Env.NO_VNC_PORT" }}
+	{{ range $container_index, $container := $containers }}
+# CONTAINER {{ $container.Name }}:
+		{{ $network := index $container.Networks 0 }}
+# network: {{$network}}
+		{{ if $container.Env.NO_VNC_PORT }}
+# ------ RANGE container {{ $container.Name }} ADDRESSES -------------
+			{{ range $address_index, $address := $container.Addresses }}
+#   - address {{$address_index}}: {{ $address }}
+#   - address {{$address_index}}.Port: {{ $address.Port }}
+#   - address {{$address_index}}.HostPort: {{ $address.HostPort }}
+#   - container.Env.NO_VNC_PORT: {{ $container.Env.NO_VNC_PORT }}
+				{{ if eq $address.Port $container.Env.NO_VNC_PORT }}
+#     => {{ $address.Port }} matches {{ $container.Env.NO_VNC_PORT }}
 
    location /{{ $container.Name }} {
         proxy_pass http://{{ $network.IP }}:{{ $address.Port }};
@@ -24,12 +34,16 @@ server {
         # Path rewriting
         rewrite /{{ $container.Name }}/(.*) /$1 break;
         proxy_redirect off;
-    }
-}
+
+				{{ else }}
+# 	  => NO MATCH!!! ({{ $address.Port }} != {{ $container.Env.NO_VNC_PORT }})
 				{{ end }}
 			{{ end }}
 		{{ end }}
+    }
 	{{ end }}
 {{ end }}        
+
+}
 
 
