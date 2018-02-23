@@ -73,7 +73,7 @@ proxygen    | 2018/02/17 23:34:12 Watching docker events
 proxygen    | 2018/02/17 23:34:13 Contents of /conf/proxy.conf did not change. Skipping notification ''
 ```
 
-When you start two Sakuli chains (see above),  `docker-gen` will get notified...
+When you start Sakuli chain 1 and 2 (see above),  `docker-gen` will get notified...
 
 ```
 proxygen    | 2018/02/17 23:34:38 Received event start for container 8bc5f8a1ccd6
@@ -124,8 +124,7 @@ server {
 
 Open your browser and Open
 * [http://[DOCKERHOST]]:81/sakuli-test1/vnc_auto.html?path=sakuli-test1]()
-* [http://[DOCKERHOST]]:81/sakuli-test3/vnc_auto.html?path=sakuli-test3]()
-* [http://[DOCKERHOST]]:81/sakuli-test5/vnc_auto.html?path=sakuli-test5]()
+* [http://[DOCKERHOST]]:81/sakuli-test2/vnc_auto.html?path=sakuli-test2]()
 
 
 Add `&password=sakuli&view_only=true` to auto-login and to enable view-only mode.
