@@ -73,7 +73,7 @@ proxygen    | 2018/02/17 23:34:12 Watching docker events
 proxygen    | 2018/02/17 23:34:13 Contents of /conf/proxy.conf did not change. Skipping notification ''
 ```
 
-When you start a Sakuli suite (see above),  `docker-gen` will get notified...
+When you start two Sakuli chains (see above),  `docker-gen` will get notified...
 
 ```
 proxygen    | 2018/02/17 23:34:38 Received event start for container 8bc5f8a1ccd6
@@ -87,9 +87,25 @@ and generate the nginx config file:
 ```
 watch -n 1 cat /var/lib/docker/data/nginx/etc/nginx/conf.d/proxy.conf
 
+
 error_log /dev/stdout debug;
 server {
    listen 81;
+
+   location /sakuli-test2 {
+        proxy_pass http://172.18.0.5:6901;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # WebSocket support (nginx 1.4)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        # Path rewriting
+        rewrite /sakuli-test2/(.*) /$1 break;
+        proxy_redirect off;
+    }
+
    location /sakuli-test1 {
         proxy_pass http://172.18.0.4:6901;
         proxy_set_header X-Real-IP $remote_addr;
