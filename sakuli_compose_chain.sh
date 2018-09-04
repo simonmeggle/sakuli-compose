@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# on MacOS, run "brew install coreutils" to get the GNU tools
+GREADLINK=$(which greadlink)
+READLINK=${GREADLINK:-readlink}
+
 function main() {
 	setvars
 	while true; do 
@@ -23,7 +27,8 @@ EOF
 }
 
 function setvars(){
-    export CWD=$(readlink -f `dirname $0`)
+	CWDCMD="$READLINK -f $(dirname $0)"
+	export CWD=$($CWDCMD)
 	if [ -z $ARGCHAINFILE ]; then 
 		echo "ERROR: no .rc chain file given. I do not know what chain to execute. Exiting."
 		exit 1

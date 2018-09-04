@@ -5,7 +5,7 @@ portainer:
         - '/var/run/docker.sock:/var/run/docker.sock'
     ports: 
         - 9000:9000
-    command: '--no-auth --logo "https://labs.consol.de/sakuli/install/img/sakuli_logo_155_55.png"'
+    command: '-H unix:///var/run/docker.sock --no-auth --logo "https://labs.consol.de/sakuli/install/img/sakuli_logo_155_55.png"'
     environment: 
         - COMPOSE_PROJECT_NAME:portainer
 

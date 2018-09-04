@@ -11,7 +11,6 @@ services:
       - $TESTSUITES_ROOT_HOST:$TESTSUITES_ROOT_MNT
       - $SAHI_CERTS_HOST:$SAHI_CERTS_MNT
       - $SAHI_FF_PROFILE_TEMPLATE_HOST:$SAHI_FF_PROFILE_TEMPLATE_MNT
-#      - $CWD/lib/websockify:/headless/noVNC/utils/sakuli-$TESTSUITE
       ports:
       - $NO_VNC_PORT_HOST:6901
       environment:

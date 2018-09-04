@@ -1,0 +1,50 @@
+
+error_log /dev/stdout debug;	
+server {
+   listen 81;
+
+
+# RANGE CONTAINER ----------------------------------------------
+{{ range $host, $containers := groupBy $ "Env.NO_VNC_PORT" }}
+	{{ range $container_index, $container := $containers }}
+		{{ $network := index $container.Networks 0 }}
+		{{ if $container.Env.NO_VNC_PORT }}
+			{{ range $address_index, $address := $container.Addresses }}
+				{{ if eq $address.Port $container.Env.NO_VNC_PORT }}
+          location /{{ $container.Name }} {
+                proxy_pass http://{{ $network.IP }}:{{ $address.Port }};
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+                # WebSocket support (nginx 1.4)
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+
+                # Path rewriting
+                # http://localhost:81/sakuli-test1/vnc_lite.html?path=sakuli1-test
+                # TODO: Access only http://localhost:81/sakuli-test1 and get redirected, 
+                # but fails 
+                #rewrite /({{ $container.Name }})/$ /vnc_lite.html?path=$1&password=sakuli break;
+                rewrite /{{ $container.Name }}/(.*) /$1 break;
+
+                #rewrite /({{ $container.Name }}).* /vnc_lite.html?path=sakuli-test1&password=sakuli break;
+                #rewrite /({{ $container.Name }}).* /vnc_lite.html?path=sakuli-test1&password=sakuli break;
+                proxy_redirect off;
+				{{ else }}
+          #     ({{ $address.Port }} != {{ $container.Env.NO_VNC_PORT }}) # NO MATCH
+				{{ end }} # if eq $address.Port
+			{{ end }}   # range $address_index
+		{{ end }}     # if $container.Env.NO_VNC_PORT
+          } 
+
+
+
+    
+	{{ end }} # range $container_index, $container
+{{ end }}   # range $host, $containers      
+
+}
+
+

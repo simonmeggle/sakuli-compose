@@ -1,12 +1,16 @@
 version: '3'
+
+volumes:
+  vol-nginx-conf: {}
+
 services:
         proxygen:
             image: 'jwilder/docker-gen'
             container_name: 'proxygen'
             volumes:
                 - '/var/run/docker.sock:/tmp/docker.sock:ro'
-                - '/var/lib/docker/data/proxygen:/templates'
-                - '/var/lib/docker/data/nginx/etc/nginx/conf.d:/conf'
+                - ./:/templates
+                - vol-nginx-conf:/conf
             command: '-watch -notify-sighup=proxy /templates/proxy.tmpl /conf/proxy.conf'
             tty: true
             stdin_open: true
@@ -20,7 +24,7 @@ services:
             image: 'nginx'
             container_name: 'proxy'
             volumes:
-                - '/var/lib/docker/data/nginx/etc/nginx/conf.d:/etc/nginx/conf.d:ro'
+                - vol-nginx-conf:/etc/nginx/conf.d:ro
             ports:
                 - '81:81'
             tty: true

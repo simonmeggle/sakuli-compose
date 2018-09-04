@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sakuli-compose overview</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-size: 20px;
+            font-weight: normal;
+            color: #595959;
+
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        a {
+            color: #595959;
+            text-decoration: none;
+        }
+
+        .docker-blue {
+            color: #327DAF;
+        }
+
+        
+
+    </style>        
+    <script language="javascript" type="text/javascript">
+    //http://127.0.0.1:81/sakuli-test1/vnc_lite.html?password=sakuli&path=sakuli-test1
+        var basicURL = [                                            
+            'http://127.0.0.1:81',                                     
+            'sakuli-test'
+            ];                                              
+
+        function getVncUrl(number) {
+            return 'http://127.0.0.1:81/sakuli-test' + number + 
+                '/vnc_lite.html?password=sakuli&path=sakuli-test'+number +
+                '&resize=fit&viewonly=1';
+        }
+        function getChain(number) {
+            if (Math.abs(number % 2) == 1) {
+                return "Chain 1";
+            } else {
+                return "Chain 2";
+            }
+        }
+        initialize = function () {
+            function divForScreen(id) {
+                var newEl = document.createElement('div');
+                newEl.setAttribute('class', 'wrapper');
+                newEl.innerHTML = '<a target="_blank" href="' + getVncUrl(id) + '">' +
+                    '<b class="docker-blue">' + getChain(id) + ': ' + basicURL[1] + ' ' + id + '</b>' +
+                    '</a><br>' +
+                    '<iframe class="scaled-frame" src="' + getVncUrl(id) + '"></iframe>';
+                div.appendChild(newEl);
+                return newEl;
+            }
+            var i; 
+            var div; 
+            for (i = 1; i <= 6; i++) { 
+                div = document.getElementById("sakuli-test"+i);
+                div.appendChild(divForScreen(i));
+            } 
+        }
+    </script>
+  </head>
+  <body onload="initialize()">
+
+    <div class="row">
+        <div class="col-md-4" id="sakuli-test1">
+          
+        </div>
+        <div class="col-md-4" id="sakuli-test3">
+          
+        </div>
+        <div class="col-md-4" id="sakuli-test5">
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" id="sakuli-test2">
+          
+        </div>
+        <div class="col-md-4" id="sakuli-test4">
+          
+        </div>
+        <div class="col-md-4" id="sakuli-test6">
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" >
+          
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

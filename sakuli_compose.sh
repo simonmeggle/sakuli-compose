@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# on MacOS, run "brew install coreutils" to get the GNU tools
+GREADLINK=$(which greadlink)
+READLINK=${GREADLINK:-readlink}
+
 function main(){
     setvars
     fixPermissions
@@ -29,7 +33,8 @@ function dirExistsOrDie(){
 }
 
 function setvars(){
-    export CWD=$(readlink -f `dirname $0`)
+	CWDCMD="$READLINK -f $(dirname $0)"
+	export CWD=$($CWDCMD)
 	export ROOT_NAME=${CWD##*/}
 	export PROXY_NETWORK=${ROOT_NAME}_proxy
 
