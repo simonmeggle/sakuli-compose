@@ -122,7 +122,7 @@ server {
 }
 ```
 
-Open your browser and Open
+Open your browser and open [http://[DOCKERHOST]]:81/sakuli-[TESTSUITE_NAME]/vnc_auto.html?path=sakuli-[TESTSUITE_NAME]](), e.g.
 * [http://[DOCKERHOST]]:81/sakuli-test1/vnc_auto.html?path=sakuli-test1]()
 * [http://[DOCKERHOST]]:81/sakuli-test2/vnc_auto.html?path=sakuli-test2]()
 
